@@ -1,6 +1,6 @@
 import pandas as pd
 
-def clean_column_names(df: pd.DataFrame) -> pd.DataFrame:
+def clean_column_names(df: pd.DataFrame, prefix_to_remove: str='electric_train.') -> pd.DataFrame:
     """
     데이터프레임의 칼럼명에서 접두사를 제거하고, 칼럼명을 매핑에 따라 변경.
 
@@ -18,9 +18,6 @@ def clean_column_names(df: pd.DataFrame) -> pd.DataFrame:
     'nph_rn_60m': '강수량', 'nph_ta_chi': '체감온도'
     }
 
-    prefix_to_remove = 'electric_train.'
-    
-    
     # 접두사 제거
     df.columns = [col.replace(prefix_to_remove, '') for col in df.columns]
     
